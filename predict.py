@@ -20,8 +20,8 @@ SDXL_MODEL_CACHE = "sdxl-cache"
 
 
 class KarrasDPM:
-    def from_config(config):
-        return DPMSolverMultistepScheduler.from_config(config, use_karras_sigmas=True)
+    def from_config(self):
+        return DPMSolverMultistepScheduler.from_config(self, use_karras_sigmas=True)
 
 
 SCHEDULERS = {
@@ -108,7 +108,7 @@ class Predictor(BasePredictor):
             generator=generator
         ).images
 
-        output_path = f"/tmp/out.png"
+        output_path = "/tmp/out.png"
 
         images[0].save(output_path)
         print(output_path)
